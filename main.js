@@ -1,57 +1,11 @@
-console.log('\n\n:::::::::DATADUMP:::::::::\n\n');
-console.log(results);
-results.forEach(function(item, i, array){
-  // console.log(item);
-  console.log(item.marketname);
-});
-
-console.log('\n\n:::::::::FUNCTIONS BELOW:::::::::\n\n');
-
-
-results.forEach(function(item, i, array){
-  // console.log(item);
-
-  var splitted = item.marketname.split(' ');
-  console.log(splitted);
-
-  var spliced = splitted.splice(1);
-  console.log(spliced);
-
-  var joined = spliced.join(' ');
-  console.log(joined);
-
-  console.log(' ');
-
-});
-
-
-
-results.forEach(function(item, i, array){
-  // console.log(item);
-
-  var splitted = item.marketname.split(' ');
-  console.log(splitted);
-
-  if(Number(splitted[0]) <= 10 ) {
-    var spliced = splitted.splice(1);
-    console.log(spliced);
-
-    var joined = spliced.join(' ');
-    console.log(joined);
-  }
-
-
-  console.log(' ');
-
-});
-
-var contentArea = document.querySelector('.farmers-markets');
-console.log(contentArea);
+// console.log('\n\n:::::::::DATADUMP:::::::::\n\n');
+// console.log('\n\n:::::::::FUNCTIONS BELOW:::::::::\n\n');
+var contentArea = document.querySelector('.market-list');
+// console.log(contentArea);
 
 var filtered = results.filter(function(item, i, array){
   return ( item.marketname.split(' ')[0] <= 10 );
 });
-
 
 filtered.forEach(function(item, i, array){
   // var name = item.marketname;
@@ -63,6 +17,17 @@ filtered.forEach(function(item, i, array){
   // drop off the first item in the array (the first word)
   // recombines the array into a single string again
   var name = item.marketname.split(' ').splice(1).join(' ');
-  console.log(name);
-  contentArea.innerHTML += '<p>' + name + '</p>';
+  // console.log(name);
+  contentArea.innerHTML += '<li>' + name + '</li>';
+});
+
+
+console.log(cat_results);
+console.log(cat_results.data[0].url);
+
+var catContentArea = document.querySelector('.cat-gifs');
+
+cat_results.data.forEach(function(item, i, array){
+  console.log(item.images.original.url);
+  catContentArea.innerHTML += '<img src="' + item.images.original.url + '">';
 });
