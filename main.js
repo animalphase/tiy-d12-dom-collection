@@ -22,12 +22,9 @@ filtered.forEach(function(item, i, array){
 });
 
 
-console.log(cat_results);
-console.log(cat_results.data[0].url);
-
+// cat gifs
 var catContentArea = document.querySelector('.cat-gifs');
 
 cat_results.data.forEach(function(item, i, array){
-  console.log(item.images.original.url);
   catContentArea.innerHTML += '<img src="' + item.images.original.url + '">';
 });
